@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Message } from './messages/message.model'
 
 @Component({
     selector: 'my-app',
@@ -6,8 +7,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    message = {
-        content: 'A message',
-        author: 'Oswaldo'
+    message: Message = new Message('Some message', 'Oswaldo');
     }
 }
