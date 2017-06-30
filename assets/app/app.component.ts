@@ -7,6 +7,6 @@ import { Message } from './messages/message.model'
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    message: Message = new Message('Some message', 'Oswaldo');
-    }
+    message: Message = new Message('Some message', 'Oswaldo')
+    
 }
