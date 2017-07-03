@@ -14,6 +14,7 @@ import { routing } from './app.routing';
 import { LogoutComponent } from './auth/logout.component';
 import { SignupComponent } from './auth/signup.component';
 import { LoginComponent } from './auth/login.component';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -35,6 +36,9 @@ import { LoginComponent } from './auth/login.component';
         routing,
         ReactiveFormsModule,
         HttpModule],
+    providers: [
+        AuthService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
