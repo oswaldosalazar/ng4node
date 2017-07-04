@@ -15,6 +15,8 @@ import { LogoutComponent } from './auth/logout.component';
 import { SignupComponent } from './auth/signup.component';
 import { LoginComponent } from './auth/login.component';
 import { AuthService } from './auth/auth.service';
+import { ErrorComponent } from './errors/error.component';
+import { ErrorService } from './errors/error.service';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { AuthService } from './auth/auth.service';
         LogoutComponent,
         SignupComponent,
         LoginComponent,
+        ErrorComponent
     ],
     imports: [
         BrowserModule,
@@ -37,7 +40,8 @@ import { AuthService } from './auth/auth.service';
         ReactiveFormsModule,
         HttpModule],
     providers: [
-        AuthService
+        AuthService,
+        ErrorService
     ],
     bootstrap: [AppComponent]
 })
