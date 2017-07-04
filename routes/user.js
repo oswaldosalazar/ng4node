@@ -28,9 +28,6 @@ router.post('/', function (req, res, next) {
 
 router.post('/login', function (req, res, next) {
   User.findOne({email: req.body.email}, function(err, user){
-    let passworStatus = bcrypt.compareSync(req.body.password, user.password);
-    let token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
-
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
@@ -43,12 +40,15 @@ router.post('/login', function (req, res, next) {
         error: {message: 'Invalid login credentials'}
       });
     }
-    if (!passworStatus) {
+    if (!bcrypt.compareSync(req.body.password, user.password)) {
       return res.status(401).json({
         title: 'Login failed',
         error: {message: 'Invalid login credentials'}
       });
     }
+
+    let token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
+    
     res.status(200).json({
       message: 'Successfully logged in',
       token: token,
