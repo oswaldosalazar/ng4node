@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -11,7 +13,7 @@ var messageRoutes = require('./routes/messages');
 var userRoutes = require('./routes/user');
 
 var app = express();
-mongoose.connect('<dbuser>:<dbpassword>@ds163672.mlab.com:63672/node-angular-udemy');
+mongoose.connect(`${process.env.MLAB_USER_NAME}:${process.env.MLAB_USER_PASS}@ds163672.mlab.com:63672/node-angular-udemy`);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
