@@ -26,7 +26,7 @@ export class LoginComponent {
           localStorage.setItem('userId', data.userId);
           this.router.navigateByUrl('/');
         },
-        error => console.error(error);
+        error => console.error(error)
       );
     this.myForm.reset();
   }
