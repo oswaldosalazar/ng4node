@@ -67,7 +67,7 @@ export class MessageService {
     const token = localStorage.getItem('token')
     ? '?token=' + localStorage.getItem('token')
     : '';
-    return this.http.patch(`/message/${message.messageId+token}`, body, { headers })
+    return this.http.patch(`https://nodejs-angular4-test.herokuapp.com/message/${message.messageId+token}`, body, { headers })
       .map((response: Response) => response.json())
       .catch((error: Response) => {
         this.errorService.handleError(error.json());
