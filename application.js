@@ -15,14 +15,15 @@ var userRoutes = require('./routes/user');
 var app = express();
 
 // mongoose.connect('localhost:27017/node-angular');
-mongoose.connect(`${process.env.MLAB_USER_NAME}:${process.env.MLAB_USER_PASS}@ds163672.mlab.com:63672/node-angular-udemy`);
+// mongoose.connect(`${process.env.MLAB_USER_NAME}:${process.env.MLAB_USER_PASS}@ds163672.mlab.com:63672/node-angular-udemy`);
+mongoose.connect(`node-ng4-user:Password@ds163672.mlab.com:63672/node-angular-udemy`);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
